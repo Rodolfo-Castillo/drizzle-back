@@ -1,9 +1,11 @@
 require("module-alias/register");
+
 const config = require("./src/core/config");
 const fastify = require("fastify")({ logger: true });
 // const nodeEnv = process.env.NODE_ENV || 'development';
 fastify.register(require("@fastify/cors"), { origin: "*" });
 require("./src/core/auth")(fastify);
+const fastifyStatic = require("fastify-static");
 
 // Routes
 const routesFn = () => {
@@ -23,6 +25,10 @@ const start = async () => {
             config.swagger_ui
         );
         routesFn();
+        await fastify.register(fastifyStatic, {
+            root: path.join(__dirname, "public"),
+            prefix: "/public/", // Acceso a los archivos estáticos a través de la URL /public/
+        });
         await fastify.ready();
         await fastify.listen({ port: 4000, host: "0.0.0.0" });
     } catch (err) {
