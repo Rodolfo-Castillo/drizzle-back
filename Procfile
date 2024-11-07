@@ -1,1 +1,1 @@
-web: pnpm run dev
+web: node server.js
