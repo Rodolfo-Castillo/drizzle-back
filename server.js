@@ -1,6 +1,6 @@
 require("module-alias/register");
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 const config = require("./src/core/config");
 const fastify = require("fastify")({ logger: true });
 // const nodeEnv = process.env.NODE_ENV || 'development';
