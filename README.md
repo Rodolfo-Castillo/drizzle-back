@@ -8,12 +8,6 @@ It's a simple CRUD Back End example using
  - SupaBase
  - JWT
 
-## Back Features
-- Made with FastifyJs.
-- Using JWT for tokens auth.
-- Using Drizzle for save in SupaBase.
-- Using Swagger to documentation.
-
 To view the front, please enter
 http://vuetest1.s3-website.us-east-2.amazonaws.com
 
